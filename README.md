@@ -73,6 +73,21 @@ Open Cline (left sidebar robot icon) → Settings gear → API Provider:
 * Base URL: http://localhost:11434
 * Model ID: qwen3-coder-32k (or whatever you named it)
 
+* Configure IP accsible 
+
+```
+sudo systemctl edit ollama.service
+
+# Pas it 
+[Service]
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+Environment="OLLAMA_ORIGINS=*"
+
+# Restart Daemon
+sudo systemctl daemon-reload
+sudo systemctl restart ollama
+```
+
 Save. Done.
 
 ## Step 6 — Vibe code
